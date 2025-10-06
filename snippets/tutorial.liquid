@@ -1,0 +1,97 @@
+{% comment %} string {% endcomment %}
+{% assign my_string = 'some string' %}
+{{ my_string }}
+
+<br>
+
+{% comment %} number {% endcomment %}
+{% assign my_number = 123 %}
+{{ my_number }}
+
+<br>
+
+{% comment %} boolean {% endcomment %}
+{% assign my_boolean = true %}
+{{ my_boolean }}
+
+{% comment %} nil or null {% endcomment %}
+{% assign my_nil = null %}
+{{ my_nil }}
+
+<br>
+
+{% comment %} array {% endcomment %}
+{{ product.tags }}
+
+{% comment %} object {% endcomment %}
+{{ product.title }}
+
+<br>
+
+{% comment %} html is treated as a string {% endcomment %}
+{% capture html %}
+    <div>
+        <p>Hello {{ product.title }}</p>
+    </div>
+    {% endcapture %}
+{{ html }}
+{{ html.size }}
+
+{% comment %} conditionals {% endcomment %}
+{% assign my_var1 = 100 %}
+{% if my_var1 > 10 %}
+  <p>var greater than 10</p>
+
+  {% assign my_var2 = 20 %}
+  {{ my_var2 }}
+{% elsif my_var1 > 5 %}
+  <p>var greater than 5</p>
+{% else %}
+  <p>var less than or equal to 10</p>
+{% endif %}
+
+{% if my_var1 < 0 %}
+  <p>var is negative</p>
+{% endif %}
+
+{% if my_var1 == 10 %}
+  <p>var is equal to 10</p>
+{% endif %}
+
+{% if my_var1 != 10 %}
+  <p>var is not equal to 10</p>
+{% endif %}
+
+{% if my_var1 >= 10 %}
+  <p>var is greater than or equal to 10</p>
+{% endif %}
+
+{% if my_var1 <= 10 %}
+  <p>var is less than or equal to 10</p>
+{% endif %}
+
+{% comment %} contains {% endcomment %}
+<p>{{ product.title }}</p>
+{% if product.title contains 'Monstera' %}
+  <p>product title contains "Monstera"</p>
+{% endif %}
+
+{% unless product.title contains 'ZZ Plant' %}
+  <p>product title does not contain "ZZ Plant"</p>
+{% else %}
+  <p>product title contains "ZZ Plant"</p>
+{% endunless %}
+
+{% comment %} logical operators {% endcomment %}
+{% assign var1 = true %}
+{% assign var2 = false %}
+
+{% if var1 and var2 %}
+  <p>both are true</p>
+{% endif %}
+
+{% if var1 or var2 %}
+  <p>at least one is true</p>
+{% endif %}
+
+<br>
